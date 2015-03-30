@@ -1,17 +1,14 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
   <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <?php require_once 'head.php';?>
   </head>
   <body>
-    <?php
-    // put your code here
-    ?>
+    <?php require_once 'header.php'; ?>
+    <div class="container">
+      <h1>Lista de Usuarios</h1>
+      <button class=" btn btn-success" name="btnNew" id="btnNew" title="Nuevo Usuario" onclick="window.location.href='usuarioAdd.php'">Nuevo Usuario</button>
+    </div>
+    <?php require_once 'footer.php'; ?>
   </body>
 </html>

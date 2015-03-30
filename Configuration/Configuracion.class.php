@@ -13,7 +13,7 @@
  */
 class Configuracion {
   static $HOST_DB='localhost';
-	static $NAME_BD='adminProyects';
+	static $NAME_BD='admin_proyects';
 	static $USER_BD='root';
 	static $PASS_BD='';
 }
