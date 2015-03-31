@@ -12,8 +12,8 @@
  * @author Edwin_Guaman
  */
 class Configuracion {
-  static $HOST_DB='localhost';
-	static $NAME_BD='admin_proyects';
-	static $USER_BD='root';
-	static $PASS_BD='';
+  const HOST_BD='localhost';
+	const NAME_BD='admin_projects';
+	const USER_BD='root';
+	const PASS_BD='';
 }

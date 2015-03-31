@@ -94,5 +94,83 @@
       </div>
     </div>
     <?php require_once 'footer.php'; ?>
+    <script type="text/javascript">
+      $(document).on("ready", function () {
+        function error(e) {
+          alert("se prudujo un error");
+        }
+
+        function agregar() {
+
+          $.ajax({
+            type: 'POST',
+            data: {
+              accion: 'add',
+              nombre: $("#txtNombre").val(),
+              ap_paterno: $("#txtApPaterno").val(),
+              ap_materno: $("#txtApellidoMaterno").val(),
+              user: $("#txtUser").val(),
+              pass: $("#txtClave").val(),
+              email: $("#txtEmail").val()
+            },
+            url: "controller/usuarioController.php",
+            success: function (e) {
+              window.location.href = "usuarioList.php";
+            },
+            error: function (e) {
+              error(e);
+            }
+          });
+        }
+
+
+        var validacion = jQuery("#frmAdd").validate({
+          debug:true,
+          errorClass: 'error help-inline',
+          validClass: 'success',
+          errorElement: 'span',
+          highlight: function (element, errorClass, validClass) {
+            $(element).parents("div.control-group").addClass(errorClass).removeClass(validClass);
+            $(element).closest('.form-group').addClass('has-error').removeClass('has-success"');
+          },
+          unhighlight: function (element, errorClass, validClass) {
+            $(element).parents(".error").removeClass(errorClass).addClass(validClass);
+            $(element).closest('.form-group').removeClass('has-error').addClass('has-success"');
+          },
+          rules: {
+            txtClave: "required",
+            txtClaveRep: {
+              equalTo: "#txtClave"
+            },
+            txtUser: {
+              remote: {
+                url: "controller/validaciones.php",
+                type: "post",
+                data: {
+                  accion: "validaUsuario"
+                }
+              }
+            },
+            txtEmail: {
+              required: true,
+              email: true
+            }
+          },
+          messages: {
+            txtUser: {
+              remote: "Nombre de Usuario ya Existe"
+            }
+          },
+          submitHandler: function (form) {
+            console.info("ingreso");
+            agregar();
+          }
+        });
+
+        $("#btnCancelar").on("click", function () {
+          window.location.href = "Index.php";
+        });
+      });
+    </script>
   </body>
 </html>
