@@ -4,8 +4,8 @@ require_once "../class/BD.class.php";
 
 $respuesta=  "";
 
-  $sql="SELECT p.nombre_completo,p.email,p.telefono,p.direccion,p.celular,p.rut,p.fecha_nacimiento,u.nombre_usuario "
-          . "FROM persona p INNER JOIN usuario u ON p.id_persona=u.id_persona;";
+  $sql="SELECT p.id_persona, p.nombre_completo,p.email,p.telefono,p.direccion,p.celular,p.rut,p.fecha_nacimiento,u.usuario "
+          . "FROM persona p INNER JOIN usuarios u ON p.id_persona=u.id_persona;";
   $parametros=array();
   $campos=array();
   $estado="error";
@@ -19,6 +19,7 @@ $respuesta=  "";
         $estado="ok";
         $campos[]=array(
             "nro"=>$cont,
+            "id_persona"=>$rs["id_persona"],
             "nombre"=>$rs["nombre_completo"],
             "email"=>$rs["email"],
             "telefono"=>$rs["telefono"],
@@ -26,11 +27,10 @@ $respuesta=  "";
             "celular"=>$rs["celular"],
             "rut"=>$rs["rut"],
             "fecha_nacimiento"=>$rs["fecha_nacimiento"],
-            "nombre_usuario"=>$rs["nombre_usuario"]);
+            "usuario"=>$rs["usuario"]);
       }
     }
   } catch (Exception $e) {
-    $bd->rollBack();
     $estado="error";
     $mensaje=$e->getMessage();
   } 

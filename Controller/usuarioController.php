@@ -49,22 +49,22 @@ if(isset($_REQUEST["pass"])){
 }
 
 if($accion =="add"){
-  try{
     $bd = new BD();
-    
+    $bd->beginTransaction();
+  try{
     $parametrosPersona = array(
         "nombre"=>$nombre,
-        "apellido_paterno"=>$apPaterno,
-        "apellido_materno"=>$apMaterno,
+        "paterno"=>$apPaterno,
+        "materno"=>$apMaterno,
         "nombre_completo"=>$nombre." ".$apPaterno." ".$apMaterno,
         "email"=>$email
     );
     
-    $bd->beginTransaction();
+    
     $bd->insert(tablas::PERSONA, $parametrosPersona);
     if($bd->myException->getEstado()==0){
       $parametrosUsuario = array(
-        'nombre_usuario'=>$user,
+        'usuario'=>$user,
         'pass'=>$pass,
         'fecha_ingreso'=>date("Y-m-d H:i:s"),
         'id_persona'=>$bd->lastId()

@@ -1,6 +1,6 @@
 <?php
 
 class tablas {
-  const USUARIO ="usuario";
+  const USUARIO ="usuarios";
   const PERSONA ="persona";
 }

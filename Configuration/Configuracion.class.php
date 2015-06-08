@@ -13,7 +13,7 @@
  */
 class Configuracion {
   const HOST_BD='localhost';
-	const NAME_BD='admin_projects';
+	const NAME_BD='admin_proyects';
 	const USER_BD='root';
 	const PASS_BD='';
 }
