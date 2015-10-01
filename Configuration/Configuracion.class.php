@@ -12,8 +12,10 @@
  * @author Edwin_Guaman
  */
 class Configuracion {
-  const HOST_BD='localhost';
-	const NAME_BD='admin_proyects';
-	const USER_BD='root';
-	const PASS_BD='';
+
+    const HOST_BD = 'localhost';
+    const NAME_BD = 'admin_proyects';
+    const USER_BD = 'root';
+    const PASS_BD = '';
+
 }
