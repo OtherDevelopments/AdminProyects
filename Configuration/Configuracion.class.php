@@ -12,10 +12,8 @@
  * @author Edwin_Guaman
  */
 class Configuracion {
-
-    const HOST_BD = 'localhost';
-    const NAME_BD = 'admin_proyects';
-    const USER_BD = 'root';
-    const PASS_BD = '';
-
+    const HOST_BD = 'br-cdbr-azure-south-a.cloudapp.net';
+    const NAME_BD = 'AdminProjects';
+    const USER_BD = 'bc726560aff108';
+    const PASS_BD = '3385e846';
 }

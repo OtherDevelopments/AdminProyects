@@ -123,7 +123,7 @@ class BD {
           $values = ":" . $key;
           $campos = $key;
         } else {
-          if ($key == "pass") {
+          if ($key == "usua_clave") {
             $values = $values . ",password(:" . $key . ")";
             $campos = $campos . "," . $key;
           } else {

@@ -17,7 +17,7 @@ if (isset($_REQUEST["accion"])) {
 if ($accion == "validaUsuario") {
   try {
     $bd = new BD();
-    $sql = "select usuario from usuarios where usuario='" . $user . "'";
+    $sql = "select usua_nombre_usuario from ca_usuarios where usua_nombre_usuario='" . $user . "'";
     $parametros = array();
     $res = $bd->select($sql, $parametros);
     if ($bd->myException->getEstado() == 0) {

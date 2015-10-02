@@ -53,23 +53,23 @@ if($accion =="add"){
     $bd->beginTransaction();
   try{
     $parametrosPersona = array(
-        "nombre"=>$nombre,
-        "paterno"=>$apPaterno,
-        "materno"=>$apMaterno,
-        "nombre_completo"=>$nombre." ".$apPaterno." ".$apMaterno,
-        "email"=>$email
+        "pers_nombres"=>$nombre,
+        "pers_paterno"=>$apPaterno,
+        "pers_materno"=>$apMaterno,
+        "pers_nombrecompleto"=>$nombre." ".$apPaterno." ".$apMaterno,
+        "pers_email"=>$email
     );
     
     
-    $bd->insert(tablas::PERSONA, $parametrosPersona);
+    $bd->insert(tablas::PERSONAS, $parametrosPersona);
     if($bd->myException->getEstado()==0){
       $parametrosUsuario = array(
-        'usuario'=>$user,
-        'pass'=>$pass,
-        'fecha_ingreso'=>date("Y-m-d H:i:s"),
+        'usua_nombre_usuario'=>$user,
+        'usua_clave'=>$pass,
+        'usua_fecha_creacion'=>date("Y-m-d H:i:s"),
         'id_persona'=>$bd->lastId()
       );
-      $bd->insert2(tablas::USUARIO, $parametrosUsuario);
+      $bd->insert2(tablas::USUARIOS, $parametrosUsuario);
       if($bd->myException->getEstado()==0){
         $bd->commit();
         $estado="ok";

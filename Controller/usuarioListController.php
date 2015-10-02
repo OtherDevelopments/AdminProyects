@@ -4,8 +4,8 @@ require_once "../class/BD.class.php";
 
 $respuesta=  "";
 
-  $sql="SELECT p.id_persona, p.nombre_completo,p.email,p.telefono,p.direccion,p.celular,p.rut,p.fecha_nacimiento,u.usuario "
-          . "FROM persona p INNER JOIN usuarios u ON p.id_persona=u.id_persona;";
+  $sql="SELECT p.id_persona, p.pers_nombrecompleto,p.pers_email,p.pers_telefono,p.pers_celular,
+      p.pers_rut,u.usua_nombre_usuario FROM tg_personas p INNER JOIN ca_usuarios u ON p.id_persona=u.id_persona;";
   $parametros=array();
   $campos=array();
   $estado="error";
@@ -20,14 +20,12 @@ $respuesta=  "";
         $campos[]=array(
             "nro"=>$cont,
             "id_persona"=>$rs["id_persona"],
-            "nombre"=>$rs["nombre_completo"],
-            "email"=>$rs["email"],
-            "telefono"=>$rs["telefono"],
-            "direccion"=>$rs["direccion"],
-            "celular"=>$rs["celular"],
-            "rut"=>$rs["rut"],
-            "fecha_nacimiento"=>$rs["fecha_nacimiento"],
-            "usuario"=>$rs["usuario"]);
+            "nombre"=>$rs["pers_nombrecompleto"],
+            "email"=>$rs["pers_email"],
+            "telefono"=>$rs["pers_telefono"],
+            "celular"=>$rs["pers_celular"],
+            "rut"=>$rs["pers_rut"],
+            "usuario"=>$rs["usua_nombre_usuario"]);
       }
     }
   } catch (Exception $e) {
